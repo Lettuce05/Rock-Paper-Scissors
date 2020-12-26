@@ -24,8 +24,8 @@ function game(){
     let computerScore = 0;
     for(let i = 0; i < 5; i++){
         //get player selection
-        playerSelection = prompt("Choose Rock, Paper, or Scissors:");
-        playerSelection = playerSelection.toLowerCase();
+        // playerSelection = prompt("Choose Rock, Paper, or Scissors:");
+        // playerSelection = playerSelection.toLowerCase();
         //get computer selection
         computerSelection = computerPlay();
         //play round
