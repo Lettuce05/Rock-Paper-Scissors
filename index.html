@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="./index.js"></script>
+    <script defer src="./index.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="title">
+        <img src="./img/logo.svg" alt="title logo">
+        <div class="scores">
+            <div class="score user-score">
+                <p class="score__title">YOUR SCORE</p>
+                <p class="score__data">0</p>
+            </div>
+            <div class="score cpu-score">
+                <p class="score__title">CPU SCORE</p>
+                <p class="score__data">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="game">
+        <button class="rock">
+            <img src="./img/icon-rock.svg" alt="rock image">
+        </button>
+        <button class="paper">
+            <img src="./img/icon-paper.svg" alt="paper image">
+        </button>
+        <button class="scissors">
+            <img src="./img/icon-scissors.svg" alt="scissors image">
+        </button>
+        <img src="./img/bg-triangle.svg" alt="triangle image">
+    </div>
 </body>
 </html>
