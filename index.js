@@ -4,6 +4,37 @@ function computerPlay(){
     return choices[randomInt];
 }
 
+function addCpuIllustration(cpuChoice, cpuButton, cpuImage){
+    if(cpuChoice == "rock"){
+        cpuButton.classList.add("rock");
+        cpuButton.classList.add("rock-selected");
+        cpuImage.src = "./img/icon-rock.svg";
+    } else if(cpuChoice == "paper"){
+        cpuButton.classList.add("paper");
+        cpuButton.classList.add("paper-selected");
+        cpuImage.src = "./img/icon-paper.svg";
+    } else if(cpuChoice == "scissors"){
+        cpuButton.classList.add("scissors");
+        cpuButton.classList.add("scissors-selected");
+        cpuImage.src = "./img/icon-scissors.svg";
+    }
+    cpuButton.appendChild(cpuImage);
+    game.appendChild(cpuButton);
+}
+
+function updateScore(result){
+    let temp;
+    if(result == 1){
+        temp = parseInt(userScore.innerText);
+        temp++;
+        userScore.innerText = String(temp);
+    } else if(result == 2){
+        temp = parseInt(cpuScore.innerText);
+        temp++;
+        cpuScore.innerText = String(temp);
+    }
+}
+
 function playRound(playerSelection, computerSelection){
     let p = playerSelection;
     let c = computerSelection;
@@ -19,36 +50,58 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    for(let i = 0; i < 5; i++){
-        //get player selection
-        // playerSelection = prompt("Choose Rock, Paper, or Scissors:");
-        // playerSelection = playerSelection.toLowerCase();
-        //get computer selection
-        computerSelection = computerPlay();
-        //play round
-        let result = playRound(playerSelection, computerSelection);
-        //update score
-        if(result == 1){
-            playerScore++;
-        } else if(result == 2){
-            computerScore++;
-        }
-        //output results
-        if(i == 4){
-            if(playerScore > computerScore){
-                console.log(`You Win! Player: ${playerScore} Computer: ${computerScore}`);
-            } else if(computerScore > playerScore){
-                console.log(`You Lose! Player: ${playerScore} Computer: ${computerScore}`);
-            } else if(computerScore == playerScore){
-                console.log(`Tie Game! Player: ${playerScore} Computer: ${computerScore}`);
-            }
-        } else {
-            console.log(`Player: ${playerScore} Computer: ${computerScore}`);
-        }
-    }
-}
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const triangle = document.querySelector(".triangle");
+const game = document.querySelector(".game");
+const userText = document.querySelector(".user-selection");
+const cpuText = document.querySelector(".cpu-selection");
+const userScore = document.querySelector(".user-score");
+const cpuScore = document.querySelector(".cpu-score");
 
-game();
+
+rock.addEventListener("click", ()=>{
+    paper.classList.toggle("not-selected");
+    scissors.classList.toggle("not-selected");
+    triangle.classList.toggle("not-selected");
+    rock.classList.toggle("user-selected");
+    userText.classList.toggle("initial-state");
+    cpuText.classList.toggle("initial-state");
+    const cpuButton = document.createElement("button");
+    const cpuImage = document.createElement("img");
+    let cpuChoice = computerPlay();
+    addCpuIllustration(cpuChoice, cpuButton, cpuImage);
+    let result = playRound("rock", cpuChoice);
+    updateScore(result);
+});
+
+paper.addEventListener("click", ()=>{
+    rock.classList.toggle("not-selected");
+    scissors.classList.toggle("not-selected");
+    triangle.classList.toggle("not-selected");
+    paper.classList.toggle("user-selected");
+    userText.classList.toggle("initial-state");
+    cpuText.classList.toggle("initial-state");
+    const cpuButton = document.createElement("button");
+    const cpuImage = document.createElement("img");
+    let cpuChoice = computerPlay();
+    addCpuIllustration(cpuChoice, cpuButton, cpuImage);
+    let result = playRound("paper", cpuChoice);
+    updateScore(result);
+});
+
+scissors.addEventListener("click", ()=>{
+    paper.classList.toggle("not-selected");
+    rock.classList.toggle("not-selected");
+    triangle.classList.toggle("not-selected");
+    scissors.classList.toggle("user-selected");
+    userText.classList.toggle("initial-state");
+    cpuText.classList.toggle("initial-state");
+    const cpuButton = document.createElement("button");
+    const cpuImage = document.createElement("img");
+    let cpuChoice = computerPlay();
+    addCpuIllustration(cpuChoice, cpuButton, cpuImage);
+    let result = playRound("scissors", cpuChoice);
+    updateScore(result);
+});

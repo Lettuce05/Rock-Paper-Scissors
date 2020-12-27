@@ -21,7 +21,9 @@ body {
 .title {
   display: flex;
   justify-content: space-between;
-  width: 600px;
+  /* width: 60%; */
+  max-width: 700px;
+  min-width: 500px;
   border: 3px solid hsl(217, 16%, 45%);
   border-radius: 10px;
   padding: 20px;
@@ -52,4 +54,105 @@ body {
 .score__data {
   color: hsl(229, 25%, 31%);
   font-size: 3rem;
+}
+
+.game {
+  margin-top: 100px;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.triangle {
+  transform: scale(0.7);
+}
+
+.rock {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  background-color: white;
+  border-radius: 100%;
+  border: 15px solid hsl(349, 71%, 52%);
+  left: 240px;
+  top: 160px;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.paper {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  background-color: white;
+  border-radius: 100%;
+  border: 15px solid hsl(230, 89%, 62%);
+  left: 150px;
+  top: 0px;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.scissors {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  background-color: white;
+  border-radius: 100%;
+  border: 15px solid hsl(39, 89%, 49%);
+  right: 150px;
+  top: 0px;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.user-selection,
+.cpu-selection {
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 0.2em;
+  display: none;
+}
+
+.user-selection {
+  left: 0px;
+}
+
+.cpu-selection {
+  right: 0px;
+}
+
+.user-selected {
+  transform: scale(1.75);
+  top: 125px;
+  left: 0px;
+}
+
+.rock-selected {
+  transform: scale(1.75);
+  top: 125px;
+  left: 425px;
+}
+
+.scissors-selected {
+  transform: scale(1.75);
+  top: 125px;
+  right: 45px;
+}
+
+.paper-selected {
+  transform: scale(1.75);
+  top: 125px;
+  left: 425px;
+}
+
+.not-selected {
+  display: none;
+}
+
+.initial-state {
+  display: initial;
 }
