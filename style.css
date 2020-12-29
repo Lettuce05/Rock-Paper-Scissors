@@ -156,3 +156,32 @@ body {
 .initial-state {
   display: initial;
 }
+
+.result-text {
+  margin-top: 100px;
+  margin-right: 50px;
+  font-weight: 700;
+  font-size: 48px;
+  color: white;
+}
+
+.result-button {
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  margin-top: 175px;
+  margin-right: 45px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: none;
+  letter-spacing: 0.15em;
+  background-color: white;
+  color: hsl(349, 71%, 52%);
+}
+
+.result-button:hover {
+  transition: all 0.3s;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}

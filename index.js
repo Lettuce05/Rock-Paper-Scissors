@@ -50,6 +50,27 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
+function displayResult(result, cpuButton, cpuImage){
+    let resultText = document.createElement("div");
+    resultText.classList.add("result-text");
+    if(result == 1){
+        resultText.innerText = "YOU WIN";
+    } else if(result == 2){
+        resultText.innerText = "YOU LOSE";
+    } else {
+        resultText.innerText = "TIE";
+    }
+    game.appendChild(resultText);
+    let resultButton = document.createElement("button");
+    resultButton.classList.add("result-button");
+    if(parseInt(userScore.innerText) < 5 && parseInt(cpuScore.innerText) < 5){
+        resultButton.innerText = "NEXT ROUND";
+    } else {
+        resultButton.innerText = "PLAY AGAIN";
+    }
+    game.appendChild(resultButton);
+}
+
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
@@ -59,7 +80,6 @@ const userText = document.querySelector(".user-selection");
 const cpuText = document.querySelector(".cpu-selection");
 const userScore = document.querySelector(".user-score");
 const cpuScore = document.querySelector(".cpu-score");
-
 
 rock.addEventListener("click", ()=>{
     paper.classList.toggle("not-selected");
@@ -73,7 +93,28 @@ rock.addEventListener("click", ()=>{
     let cpuChoice = computerPlay();
     addCpuIllustration(cpuChoice, cpuButton, cpuImage);
     let result = playRound("rock", cpuChoice);
+
     updateScore(result);
+    displayResult(result);
+
+    const resultButton = document.querySelector(".result-button");
+    const resultText = document.querySelector(".result-text");
+
+    resultButton.addEventListener("click", ()=>{
+        if(userScore.innerText == "5" || cpuScore.innerText == "5"){
+            userScore.innerText = "0";
+            cpuScore.innerText = "0";
+        }
+        resultButton.remove();
+        resultText.remove();
+        cpuButton.remove();
+        paper.classList.toggle("not-selected");
+        scissors.classList.toggle("not-selected");
+        triangle.classList.toggle("not-selected");
+        rock.classList.toggle("user-selected");
+        userText.classList.toggle("initial-state");
+        cpuText.classList.toggle("initial-state");
+    });
 });
 
 paper.addEventListener("click", ()=>{
@@ -89,6 +130,26 @@ paper.addEventListener("click", ()=>{
     addCpuIllustration(cpuChoice, cpuButton, cpuImage);
     let result = playRound("paper", cpuChoice);
     updateScore(result);
+    displayResult(result, cpuButton, cpuImage);
+
+    const resultButton = document.querySelector(".result-button");
+    const resultText = document.querySelector(".result-text");
+
+    resultButton.addEventListener("click", ()=>{
+        if(userScore.innerText == "5" || cpuScore.innerText == "5"){
+            userScore.innerText = "0";
+            cpuScore.innerText = "0";
+        }
+        resultButton.remove();
+        resultText.remove();
+        cpuButton.remove();
+        rock.classList.toggle("not-selected");
+        scissors.classList.toggle("not-selected");
+        triangle.classList.toggle("not-selected");
+        paper.classList.toggle("user-selected");
+        userText.classList.toggle("initial-state");
+        cpuText.classList.toggle("initial-state");
+    });
 });
 
 scissors.addEventListener("click", ()=>{
@@ -104,4 +165,24 @@ scissors.addEventListener("click", ()=>{
     addCpuIllustration(cpuChoice, cpuButton, cpuImage);
     let result = playRound("scissors", cpuChoice);
     updateScore(result);
+    displayResult(result);
+
+    const resultButton = document.querySelector(".result-button");
+    const resultText = document.querySelector(".result-text");
+
+    resultButton.addEventListener("click", ()=>{
+        if(userScore.innerText == "5" || cpuScore.innerText == "5"){
+            userScore.innerText = "0";
+            cpuScore.innerText = "0";
+        }
+        resultButton.remove();
+        resultText.remove();
+        cpuButton.remove();
+        paper.classList.toggle("not-selected");
+        rock.classList.toggle("not-selected");
+        triangle.classList.toggle("not-selected");
+        scissors.classList.toggle("user-selected");
+        userText.classList.toggle("initial-state");
+        cpuText.classList.toggle("initial-state");
+    });
 });
