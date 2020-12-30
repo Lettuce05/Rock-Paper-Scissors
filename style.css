@@ -6,6 +6,7 @@
 
 html {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -32,6 +33,10 @@ body {
   margin-top: 50px;
 }
 
+.title > img {
+  transition: all 0.3s;
+}
+
 .scores {
   display: flex;
 }
@@ -43,6 +48,7 @@ body {
   background-color: white;
   border-radius: 5px;
   margin-right: 10px;
+  transition: all 0.3s;
 }
 
 .score__title {
@@ -184,4 +190,127 @@ body {
   background-color: transparent;
   color: white;
   border: 1px solid white;
+}
+
+@media (max-width: 700px) {
+  .title {
+    padding: 0;
+    width: 80%;
+    min-width: 320px;
+  }
+
+  .title > img {
+    transform: scale(0.7);
+    margin-left: -10px;
+  }
+
+  .score {
+    transform: scale(0.7);
+    justify-self: flex-end;
+    margin-right: -30px;
+    padding: 0px;
+  }
+
+  .scores {
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .game {
+    width: 320px;
+  }
+
+  .rock {
+    top: 150px;
+    left: 100px;
+  }
+
+  .paper {
+    left: 180px;
+  }
+
+  .scissors {
+    right: 180px;
+  }
+
+  .user-selection,
+  .cpu-selection {
+    position: absolute;
+    font-size: 16px;
+    color: white;
+    letter-spacing: 0.1em;
+    display: none;
+  }
+
+  .user-selection {
+    left: 10px;
+    top: 150px;
+  }
+
+  .cpu-selection {
+    right: 0px;
+    top: 150px;
+  }
+
+  .user-selected {
+    transform: scale(1);
+    top: 0px;
+    left: -10px;
+  }
+  .rock-selected {
+    transform: scale(1);
+    top: 0px;
+    left: 185px;
+  }
+
+  .scissors-selected {
+    transform: scale(1);
+    top: 0px;
+    right: 10px;
+  }
+
+  .paper-selected {
+    transform: scale(1);
+    top: 0px;
+    left: 185px;
+  }
+
+  .not-selected {
+    display: none;
+  }
+
+  .initial-state {
+    display: initial;
+  }
+
+  .result-text {
+    margin-top: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 64px;
+    color: white;
+  }
+
+  .result-button {
+    position: absolute;
+    width: 220px;
+    height: 50px;
+    margin-top: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    letter-spacing: 0.15em;
+    background-color: white;
+    color: hsl(349, 71%, 52%);
+  }
+
+  .result-button:hover {
+    transition: all 0.3s;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+  }
 }
