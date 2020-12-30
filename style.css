@@ -206,14 +206,14 @@ body {
 
   .score {
     transform: scale(0.7);
-    justify-self: flex-end;
-    margin-right: -30px;
+    margin-right: -20px;
     padding: 0px;
   }
 
   .scores {
     justify-content: flex-end;
     margin-right: 20px;
+    max-width: 40%;
   }
 
   .game {
