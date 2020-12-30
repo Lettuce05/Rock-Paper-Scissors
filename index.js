@@ -1,3 +1,5 @@
+document.documentElement.requestFullscreen();
+
 function computerPlay(){
     let choices = ['rock','paper','scissors'];
     let randomInt = Math.floor(Math.random() * 3);
